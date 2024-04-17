@@ -1,10 +1,18 @@
 package ADP1;
 
 import java.util.Arrays;
-import java.util.Map;
 
+
+/**
+ * InplaceSuche - Klasse mit nur einer Methode localMax.
+ */
 public class InplaceSuche {
 
+    /**
+     * Nur zu testzwecken - args wird nicht genutzt.
+     * Führt einemal die localmax Suche für definierte Parameter aus.
+     * @param args
+     */
     public static void main(String[] args) {
         int[] ary1 = {1, 61, 89, 75, 16, 33, 89, 59, 28, 3, 3, 97, 61, 85, 47, 38, 78, 7, 6, 15};
 
@@ -19,7 +27,12 @@ public class InplaceSuche {
 
     }
 
-
+    /**
+     * Einstigesmethode, prüft die Gültigkeit der eingaben
+     * @param ary Array mit ints in dem Nach einem Localen Maximum gesucht wird
+     * @param radius definiert die Größe der Nachbarschaft rund um einen Wert, in dem nach dem Maximum gesucht wird
+     * @return
+     */
     public static int[] localMax(int[] ary, int radius){
 
         if (ary.equals(null)||ary.length<1) return null;
@@ -29,13 +42,16 @@ public class InplaceSuche {
 
 
     /**
-     *
-     * @param ary
-     * @param radius
-     * @return
+     * Interne Methode - führt rekursive die Suche nach einem Localen maximum für das Array aus.
+     * @param ary Array mit Integern
+     * @param radius Definiert die Größe der Nachbarschaft um einen wert
+     * @param low Untergrenze des Array-bereiches der untersucht wird
+     * @param high Obergrenze des Array-Bereiches der untersucht wird
+     * @return Maximalwert und dessen Nachbarschaft als Int-Array oder null im falle der
      */
     private static int[] _localMax(int[] ary, int radius, int low, int high){
 /**
+ * Notizen/Überlegungen wie man die aufgabe löst...
  * 1. berechne die mitte
  * 2. betrachte die nachbarn
  * 2.2 merk dir den kleinsten nachbarn rechts .
