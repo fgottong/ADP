@@ -25,3 +25,12 @@ java ADP1.NumberGenerator 10 0 5
 java ADP1.NPlusEvenFilter -classpath /mnt/c/Users/fabia/Documents/4_Semester/70_Algorithmen_Datenstrukturen/30_Praktika_Uebung/algs4/algs4.jar  
 
 ```
+
+
+# 2024-04-24 
+
+```powershell
+java Praktikum1.NumberGenerator 20 -5 5 | java Praktikum1.NPlusEvenFilter 
+java Praktikum1.NumberGenerator 20 -5 5 | java Praktikum1.NPlusEvenFilter | java Praktikum1.AccumulatorClient 0 
+
+```

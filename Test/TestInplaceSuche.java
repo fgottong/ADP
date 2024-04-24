@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import ADP1.InplaceSuche;
+import Praktikum1.InplaceSuche;
 public class TestInplaceSuche {
     int[] ary1 = {1, 61, 89, 75, 16, 33, 89, 59, 28, 3, 3, 97, 61, 85, 47, 38, 78, 7, 6, 15};
 

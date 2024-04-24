@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class NumberGenerator {
-    protected double[] ary;
+    protected Number[] ary;
     protected Random rand;
     protected int N;
     protected double min;
@@ -12,21 +12,27 @@ public class NumberGenerator {
 
     public NumberGenerator(int n, double max) {
         this(n, Double.MIN_VALUE, max);
-        this.ary = new double[this.N];
+        this.ary = new Number[this.N];
         this.fillArray(n, max);
     }
 
     public NumberGenerator(int n, double min, double max) {
         this.N = n;
-        this.rand = new Random();
+        this.rand = new Random(12345);
         this.min = min;
-        this.ary = new double[this.N];
+        this.ary = new Number[this.N];
         this.fillArray(n, min, max);
     }
 
     public static void main(String[] args) {
         NumberGenerator numGen = new NumberGenerator(Integer.parseInt(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
-        System.out.println(numGen);
+
+
+        //System.out.println(2);
+        for (Number n : numGen.getAry()){
+            System.out.printf("%s ",n);
+        }
+
     }
 
     private void fillArray(int N, double max) {
@@ -34,7 +40,7 @@ public class NumberGenerator {
             if (this.rand.nextBoolean()) {
                 this.ary[i] = this.rand.nextDouble(max + 1.0);
             } else {
-                this.ary[i] = (double)this.rand.nextInt((int)max + 1);
+                this.ary[i] = this.rand.nextInt((int)max + 1);
             }
         }
 
@@ -45,7 +51,7 @@ public class NumberGenerator {
             if (this.rand.nextBoolean()) {
                 this.ary[i] = this.rand.nextDouble(min, max + 1.0);
             } else {
-                this.ary[i] = (double)this.rand.nextInt((int)min, (int)max + 1);
+                this.ary[i] = this.rand.nextInt((int)min, (int)max + 1);
             }
         }
 
@@ -53,19 +59,16 @@ public class NumberGenerator {
 
     public String toString() {
         StringBuilder aryString = new StringBuilder();
-        double[] var2 = this.ary;
-        int var3 = var2.length;
 
-        for(int var4 = 0; var4 < var3; ++var4) {
-            double v = var2[var4];
-            aryString.append(v);
+        for(Number n : ary) {
+            aryString.append(n);
             aryString.append(" ");
         }
 
         return aryString.toString().trim();
     }
 
-    public double[] getAry() {
+    public Number[] getAry() {
         return Arrays.copyOf(this.ary, this.ary.length);
     }
 }
