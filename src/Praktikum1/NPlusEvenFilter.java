@@ -1,4 +1,4 @@
-package ADP1;
+package Praktikum1;
 
 import edu.princeton.cs.algs4.StdIn; // Muss algs4.jar in den Project-structures -> Modules -> Dependencies hinzufügen. Und im der Umgebungsvariablen bis zur jar verknüpfen...
 

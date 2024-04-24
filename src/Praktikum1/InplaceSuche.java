@@ -1,4 +1,4 @@
-package ADP1;
+package Praktikum1;
 
 import java.util.Arrays;
 

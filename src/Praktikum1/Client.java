@@ -30,11 +30,8 @@ public class Client {
 
     private static void fillArray(int N, Accumulator accu, Random rand, int max) {
         NumberGenerator numGen = new NumberGenerator(N, (double)max);
-        double[] var5 = numGen.getAry();
-        int var6 = var5.length;
-
-        for(int var7 = 0; var7 < var6; ++var7) {
-            Double d = var5[var7];
+        
+        for(Double d: numGen.getAry()) {
             accu.addDataValue(d);
         }
 
