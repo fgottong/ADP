@@ -1,6 +1,8 @@
-package ADP;
+package Praktikum1;
 
-public class SimpleAccumulator implements Accumulator{
+import edu.princeton.cs.algs4.*;
+
+public class SimpleAccumulator extends Accumulator{
 
     protected int N;
     protected double total;

@@ -1,8 +1,9 @@
-package ADP1;
+
+package Praktikum1;
 import edu.princeton.cs.algs4.*;
 import java.awt.*;
 
-public class VisualAccumulator extends SimpleAccumulator implements Accumulator{
+public class VisualAccumulator extends SimpleAccumulator{
 
 
     public VisualAccumulator(int trials, double max){
