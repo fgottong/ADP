@@ -18,11 +18,11 @@ public class NPlusEvenFilter {
         while (!StdIn.isEmpty()){
             try {
                 String zahlS = StdIn.readString();
-                if (!zahlS.contains(",") || !zahlS.contains(".")) {
+     //           if (!zahlS.contains(",") || !zahlS.contains(".")) {
                     zahl = Integer.parseInt(zahlS);
                     if (zahl >= 0 && zahl % 2 == 0) System.out.printf("%3d\n", zahl);
                     //System.out.println("Arbeite");
-                }
+     //           }
 
             } catch (NumberFormatException nfe) {
                 // Wenn die Zahl kein integer ist mache nichts. Setze einfach mit for fort.

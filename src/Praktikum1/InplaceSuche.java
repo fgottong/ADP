@@ -63,36 +63,38 @@ public class InplaceSuche {
         // Abbruchbedingung
         if (low > high || low == high) return null;
 
+        //Fehlerfall: es gibt kein Locales maximum, da der verbebleibdende bereich kleiner als die nachbarschaft ist.
+        if(Math.abs(high-low)<=2*radius) return null;
 
-        int currentIndex = low + (int)Math.ceil((high-low)/2);
+
+        int centre = low + (high-low)/2;
         int minimumLeft = Integer.MAX_VALUE;
         int minimumRight = Integer.MAX_VALUE;
         boolean allLeftMinor = true;
         boolean allRightMinor = true;
 
+
         // Nachbarn Links Betrachten
         for(int i= 1; i<=radius;i++){
-            if(ary[currentIndex-i]<minimumLeft) minimumLeft=ary[currentIndex-i]; // merke dir den Kleinsten Linken nachbarn.
-            if(ary[currentIndex-i]>ary[currentIndex]) allLeftMinor = false; // ist auf der linkenseite eine größer?
+            if(ary[centre-i]<minimumLeft) minimumLeft=ary[centre-i]; // merke dir den Kleinsten Linken nachbarn.
+            if(ary[centre-i]>ary[centre]) allLeftMinor = false; // ist auf der linkenseite eine größer?
         }
 
         //Nachbarn Rechts Betrachten
         for(int i = 1; i<=radius;i++){
-            if(ary[currentIndex+i]<minimumRight) minimumRight=ary[currentIndex+i]; // merke dir den Kleinsten Rechten nachbarn.
-            if(ary[currentIndex+i]>ary[currentIndex]) allRightMinor = false; // ist auf der linkenseite eine größer?
+            if(ary[centre+i]<minimumRight) minimumRight=ary[centre+i]; // merke dir den Kleinsten Rechten nachbarn.
+            if(ary[centre+i]>ary[centre]) allRightMinor = false; // ist auf der linkenseite eine größer?
         }
 
         //Erfolgsfall: der aktuelle Index ist ein Lokales Maximum, alle nachbarn im Radius sind kleiner.
-        if(allLeftMinor && allRightMinor) return Arrays.copyOfRange(ary,currentIndex-radius,currentIndex+radius+1);
+        if(allLeftMinor && allRightMinor) return Arrays.copyOfRange(ary,centre-radius,centre+radius+1);
 
-        //Fehlerfall: es gibt kein Locales maximum, da der verbebleibdende bereich kleiner als die nachbarschaft ist.
-        if(Math.abs(high-low)<=2*radius) return null;
 
         // Rekursiver aufruf - einer der nachbarn war größer, untersuche die hälfte des arra
         if(minimumLeft<=minimumRight) {
-            return _localMax(ary,radius,low,currentIndex);
+            return _localMax(ary,radius,low,centre);
         }else{
-            return _localMax(ary,radius,currentIndex, high);
+            return _localMax(ary,radius,centre, high);
         }
 
     }

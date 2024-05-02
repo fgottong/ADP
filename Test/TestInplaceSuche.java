@@ -1,6 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 import Praktikum1.InplaceSuche;
+
+import static Praktikum1.InplaceSuche.localMax;
+import static org.junit.Assert.assertArrayEquals;
+
 public class TestInplaceSuche {
     int[] ary1 = {1, 61, 89, 75, 16, 33, 89, 59, 28, 3, 3, 97, 61, 85, 47, 38, 78, 7, 6, 15};
 
@@ -17,15 +21,15 @@ public class TestInplaceSuche {
 
     @Test
     public void testeInplaceSuche1(){
-        Assert.assertArrayEquals(resultAry1,InplaceSuche.localMax(ary1,radius1));
+        assertArrayEquals(resultAry1, localMax(ary1,radius1));
     }
     @Test
     public void testeInplaceSuche2(){
-        Assert.assertArrayEquals(resultAry2,InplaceSuche.localMax(ary2,radius2));
+        assertArrayEquals(resultAry2, localMax(ary2,radius2));
     }
     @Test
     public void testeInplaceSuche3(){
-        Assert.assertNull(InplaceSuche.localMax(ary3,radius3));
+        Assert.assertNull(localMax(ary3,radius3));
     }
 
 }

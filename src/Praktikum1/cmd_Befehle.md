@@ -32,5 +32,5 @@ java ADP1.NPlusEvenFilter -classpath /mnt/c/Users/fabia/Documents/4_Semester/70_
 ```powershell
 java Praktikum1.NumberGenerator 20 -5 5 | java Praktikum1.NPlusEvenFilter 
 java Praktikum1.NumberGenerator 20 -5 5 | java Praktikum1.NPlusEvenFilter | java Praktikum1.AccumulatorClient 0 
-
 ```
+

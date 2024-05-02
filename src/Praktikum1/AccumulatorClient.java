@@ -30,7 +30,7 @@ public class AccumulatorClient {
         if (Integer.parseInt(args[0]) == 0) {
             accu = new SimpleAccumulator();
         } else {
-            double max = doubleary.stream().max(Comparator.naturalOrder()).get();
+            double max = doubleary.stream().max(Comparator.naturalOrder()).orElse(0.0);
             accu = new VisualAccumulator(doubleary.size(), max);
         }
 
@@ -41,16 +41,9 @@ public class AccumulatorClient {
         //fillArray(N, (Accumulator)accu, rand, max);
         //System.out.println(((Accumulator)accu).mean());
 
-        System.out.println(accu.toString());
+        System.out.println(accu);
 
     }
 
-    private static void fillArray(int N, Accumulator accu, Random rand, int max) {
-        NumberGenerator numGen = new NumberGenerator(N, (double)max);
 
-        for(Number n: numGen.getAry()) {
-            accu.addDataValue(n.doubleValue());
-        }
-
-    }
 }
