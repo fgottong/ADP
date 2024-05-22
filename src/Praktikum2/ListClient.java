@@ -1,5 +1,6 @@
 package Praktikum2;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class ListClient {
         test.add(0, "First");
         test.add(test.size(), "Last");
 
-        System.out.println("=".repeat(25)+"a. TEST LIST PRINTED (Elements at first and last place):"+"=".repeat(25));
+        System.out.println("=".repeat(25)+"2.A a. TEST LIST PRINTED (Elements at first and last place):"+"=".repeat(25));
         System.out.println(test.toString());
 
         //B
@@ -98,7 +99,10 @@ public class ListClient {
         System.out.printf("Resultierende liste: \n");
         System.out.printf("%s\n",listFromAryList);
 
-
+        //2.A.2
+        System.out.println("=".repeat(25)+"2.A2 1. VERDOPPLUNGSTEST MIT GEWICHTETEN ZEITEN:"+"=".repeat(25));
+        //String[] args = Arrays.of {"10","10"};
+        DoublyLinkedListDoublingRatio.client(1000, 7);
     }
 
 
