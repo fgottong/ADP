@@ -33,7 +33,7 @@ public class DoublyLinkedListDoublingRatio {
 
     /**
      *
-//     * @param args 1. Startanzahl der Elemente 2. Anzahl der Wiederholungen bzw. Verdoppelungen
+     * @param args 1. Startanzahl der Elemente 2. Anzahl der Wiederholungen bzw. Verdoppelungen
      */
     public static void client(int M, int repeats) {
         int N = M; // Elemente Anzahl = Problemgröße
@@ -51,6 +51,10 @@ public class DoublyLinkedListDoublingRatio {
             writeResultsToCSV(t, N, times[t], times[t] / times[t - 1]);
 
         }
+    }
+
+    public static void main(String[] args) {
+        client(Integer.parseInt(args[0]),Integer.parseInt(args[0]));
     }
 
 

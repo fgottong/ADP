@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib
 import seaborn as sns
 
-df = pd.read_csv('../../results.csv',sep=',', lineterminator='\n')
-df.head(11)
+df = pd.read_csv('../../results.csv',sep=',', lineterminator='\n',index_col='Trial')
+print(df.head(11))
 
 # Diagram vorbereiten 
 
@@ -15,7 +15,7 @@ matplotlib.rcParams['font.size'] = 12
 
 
 fig=plt.figure(figsize=(12,8))
-ax = fig.add_axes()
+ax=plt.gca()
 
 # Legende,  Title, Achsenbeschriftungen im Diagramm anzeigen.
 plt.title("gemessene Laufzeiten im Vergleich")
@@ -24,4 +24,6 @@ plt.gca().set_xlabel("Anzahl der Elemente / Listengröße")
 plt.gca().set_ylabel("Laufzeit in ms")
 plt.gca().ticklabel_format(useMathText=True)
 
-plt.plot()
+
+plt.plot(df.index,df['Time'],label='Time')
+plt.show()
