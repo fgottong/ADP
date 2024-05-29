@@ -119,3 +119,44 @@ interface Iterable<T>{
 
 @enduml 
 ```
+
+# Laufzeit berechnung 
+
+$T(N) = a\cdot N^b$  
+Gesucht: a  
+Gegeben:   
+- Gemessene Daten $N = 256000,~~T(N)=63.242$
+- Abgeschätzt: $b=1.8$
+
+=> $a = \frac{T}{N^b} = \frac{63.242}{256000^{1.8}}\approx1.16\times 10^{-8}$  
+
+alternativ:  
+=> $a = \frac{T}{N^b} = \frac{3.074}{64000^{1.8}}\approx6.86\times 10^{-9}$
+
+## Verdoppelung von 64000 auf 128000
+
+Gemessene Werte 
+
+| N      | T(N)   |
+| ------ | ------ |
+| 64000  | 3.074  |
+| 128000 | 12.048 |
+
+Berechnete Werte $T(N) = 6.86\times 10^{-9} \cdot N^{1.8}$
+
+| N      | T(N)      |
+| ------ | --------- |
+| 64000  | 3.07400  |
+| 128000 | 10.70429 |
+=> Geringfügig unterschätzt 
+
+Weitere Abschätzung: 
+
+| N      | T(N)       |
+| ------ | ---------- |
+| 64000  | 3.074000   |
+| 128000 | 10.704290  |
+| 256000 | 37.274502  |
+| 512000 | 129.797354 |
+
+=> Deutliche unterschätzt 
