@@ -101,9 +101,9 @@ public class ListClient {
 
         //2.A.2
         System.out.println("=".repeat(25)+"2.A2 1. VERDOPPLUNGSTEST MIT GEWICHTETEN ZEITEN:"+"=".repeat(25));
-        String[] params = new String[] {"1000","12"};
-        //DoublyLinkedListDoublingRatio.client(1000, 9);
-        DoublyLinkedListDoublingRatio.main(params);
+        //String[] params = new String[] {"1000","12","LinkedList"};
+        //DoublyLinkedListDoublingRatio.main(params);
+        DoublyLinkedListDoublingRatio.client(1000, 9,"DoublyLinkedList");
     }
 
 

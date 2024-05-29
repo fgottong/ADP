@@ -160,3 +160,102 @@ Weitere Abschätzung:
 | 512000 | 129.797354 |
 
 => Deutliche unterschätzt 
+
+
+# Vergleich Java LinkedList vs. eigene DoublyLinkedList 
+
+| Trial | N       | Time LL | Time Ratio LL      | Time DLL | Time Ratio DLL     |
+| :---- | :------ | :------ | :----------------- | :------- | :----------------- |
+| 1     | 2000    | 0.001   | Infinity           | 0.004    | 2.0                |
+| 2     | 4000    | 0.001   | 1.0                | 0.01     | 2.5                |
+| 3     | 8000    | 0.0     | 0.0                | 0.042    | 4.2                |
+| 4     | 16000   | 0.001   | Infinity           | 0.165    | 3.9285714285714284 |
+| 5     | 32000   | 0.003   | 3.0                | 0.165    | 3.9285714285714284 |
+| 6     | 64000   | 0.002   | 0.6666666666666666 | 2.567    | 3.937116564417178  |
+| 7     | 128000  | 0.003   | 1.5                | 10.244   | 3.990650564861706  |
+| 8     | 256000  | 0.037   | 12.333333333333332 | 46.598   | 4.548809058961343  |
+| 9     | 512000  | 0.074   | 2.0                | -        | -                  |
+| 10    | 1024000 | 0.075   | 1.0135135135135136 | -        | -                  |
+| 11    | 2048000 | 0.273   | 3.6400000000000006 | -        | -                  |
+
+Die eigene Implementierung der DLL ist erheblich langsamer. 
+Und das Laufzeitverhältnis pendelt sich schnell auf ~4 ein. 
+
+## Ursachen 
+
+1. Verdacht: LinkedList ist nur Einfach verknüpft. 
+   1. FALSCH: LinkedList ist auch ein Doppel Verknüpfte Liste. 
+
+Tatsächliche Ursache:  
+die Add-Methode von LinkedList fügt immer hinten ein. 
+Ebenso unser DoublyLinkedList. 
+ABER: die Java-LinkedList list, setzt direkt beim Hinteren Wächterknoten an. 
+UNSERE DLL läuft beim fordern Wächterknoten los und muss erst die ganze Liste Iterieren, bevor sie hinten angekommen ist. 
+
+Wir arbeiten mit einer `add(atIndex)` methode, um auch mitten drin etwas einzufügen. 
+
+Code der Java-LinkedList add Methode: 
+```java 
+
+public boolean add(E e) {
+        linkLast(e);
+        return true;
+    }
+
+void linkLast(E e) {
+        final Node<E> l = last;
+        final Node<E> newNode = new Node<>(l, e, null);
+        last = newNode;
+        if (l == null)
+            first = newNode;
+        else
+            l.next = newNode;
+        size++;
+        modCount++;
+    }
+
+```
+Schritte: 
+1. Direkter zugriff auf den Last-Node 
+2. setze den neuen Knoten als last Node 
+3. ein vergleich 
+=> 3 operation
+=> Konstantes verhalten über die Problemgröße N 
+
+
+Unser Code: 
+```java 
+public boolean add(E e) {
+        //super.add(size,e);
+        add(size,e);
+        return true;
+    }
+
+public void add(int index, E element) {
+
+        Node<E> currentNode = head.getNext();
+        // current = tail
+
+        Node<E> newNode = new Node<>(element);
+
+
+        for(int i=0;i<index;i++){
+            currentNode = currentNode.getNext();
+        }
+
+        newNode.setPrevious(currentNode.getPrevious()); // previous = head
+        currentNode.getPrevious().setNext(newNode); // previous = head
+        newNode.setNext(currentNode); //Current = Tail
+        currentNode.setPrevious(newNode);
+
+        size++;
+
+    }
+```
+1. Zurgriff auf den Head Node 
+2. Iteriere Über ganze Liste 
+   1. QUADRATISCHES Verhalten mit der Problemgröße N
+3. Setze Knoten 
+
+=> 2 Operation mit Konstantem Verhalten + Quardatisches Wachstum. 
+
