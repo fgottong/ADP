@@ -44,6 +44,7 @@ public class ListClient {
         test.remove(0);
         test.remove(test.size()/2);
         test.remove(test.size()-1);
+        //test.remove(test.size()); // Erwarte INdexOut Expe...
         System.out.println("AFTER REMOVAL: " + test.toString());
 
         //D

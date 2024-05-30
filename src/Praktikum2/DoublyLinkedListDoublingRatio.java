@@ -32,7 +32,7 @@ public class DoublyLinkedListDoublingRatio {
 
         //DoublyLinkedList<Integer> testList = new DoublyLinkedList<>();
 
-        Stopwatch timer = new Stopwatch();
+
 
         int index = 0;
 
@@ -40,6 +40,9 @@ public class DoublyLinkedListDoublingRatio {
             testList.add(index);
             index++;
         }
+        Stopwatch timer = new Stopwatch();
+
+        for(int i: testList){}
 
         times[t] = timer.elapsedTime();
 

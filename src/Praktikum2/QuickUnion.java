@@ -12,9 +12,10 @@ public class QuickUnion {
     /**
      * Geklaut aus UFBase
      * Wendholt original.
-     *
+     * <p>
      * Erzeugt einen neuen Graphen mit n Knoten.
      * Diese sind zunächst alle Getrennt
+     *
      * @param n
      */
     public QuickUnion(int n) {
@@ -24,7 +25,11 @@ public class QuickUnion {
             id[i] = i;
         }
     }
-    public boolean connected(int p, int q) {return find(p) == find(q);}
+
+    public boolean connected(int p, int q) {
+        return find(p) == find(q);
+    }
+
     public int count() {
         return count;
     }
@@ -42,17 +47,30 @@ public class QuickUnion {
 //        while (id[node]!=node) node = id[node];
 //        return node;
 //        }
+    public int find(int p) {
+        //int root;
+//
+//        if (p != id[p]) {
+//            //p = id[p];
+////            id[p] = find(id[p]);
+//            p = find(id[p]);
+//        }
+//        //p = id[p];
+//        return id[p];
 
-    public int find(int p){
-        if (p != id[p]){
-            id[p] = find(id[p]);
+        int initP = p;
+        while(p!=id[p]) p=id[p];
+        int root = p;
+
+        while(p!=id[p]){
+            p=id[id[p]];
+            id[p]=root;
         }
-
-        return id[p];
+        return root;
     }
 
-    public void compress(){
-        for (int i = 0; i < id.length; i++){
+    public void compress() {
+        for (int i = 0; i < id.length; i++) {
             find(i);
         }
     }
