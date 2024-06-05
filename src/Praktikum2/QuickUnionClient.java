@@ -65,7 +65,7 @@ public class QuickUnionClient {
         qu_worst.union( 0 ,7);
         qu_worst.union( 0 ,8);
 
-        qu_worst.compress();
+        //qu_worst.compress();
 
 //        qu_worst.find(0);
 //        qu_worst.find(1);

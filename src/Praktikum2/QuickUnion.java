@@ -47,33 +47,23 @@ public class QuickUnion {
 //        while (id[node]!=node) node = id[node];
 //        return node;
 //        }
+
     public int find(int p) {
-        //int root;
-//
-//        if (p != id[p]) {
-//            //p = id[p];
-////            id[p] = find(id[p]);
-//            p = find(id[p]);
+
+        int root = p;           // Annhame Wurzel = Knoten;
+        if(p!=id[p]){           // knoten ist nicht seine Eigene Wurzel
+            root = find(id[p]); // Finde die Wahre Wurzel
+            id[p] = root;         // Setze übergeordneten knoten gleich der wahren wurzel;
+        }
+        return root;            // Gib die Wurzel aus.
+
+    }
+
+//    public void compress() {
+//        for (int i = 0; i < id.length; i++) {
+//            find(i);
 //        }
-//        //p = id[p];
-//        return id[p];
-
-        int initP = p;
-        while(p!=id[p]) p=id[p];
-        int root = p;
-
-        while(p!=id[p]){
-            p=id[id[p]];
-            id[p]=root;
-        }
-        return root;
-    }
-
-    public void compress() {
-        for (int i = 0; i < id.length; i++) {
-            find(i);
-        }
-    }
+//    }
 
 
     /**
