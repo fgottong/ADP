@@ -34,3 +34,10 @@ java Praktikum1.NumberGenerator 20 -5 5 | java Praktikum1.NPlusEvenFilter
 java Praktikum1.NumberGenerator 20 -5 5 | java Praktikum1.NPlusEvenFilter | java Praktikum1.AccumulatorClient 0 
 ```
 
+# 2024-06-05 Knoten für Graph für Verdoppelungstest von Quick Union 
+
+````powershell
+java Praktikum1.NumberGenerator 20 0 5 | java Praktikum1.NPlusEvenFilter
+````
+
+

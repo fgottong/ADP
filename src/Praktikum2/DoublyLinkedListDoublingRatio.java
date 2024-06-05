@@ -32,8 +32,6 @@ public class DoublyLinkedListDoublingRatio {
 
         //DoublyLinkedList<Integer> testList = new DoublyLinkedList<>();
 
-
-
         int index = 0;
 
         while (testList.size() < N) {

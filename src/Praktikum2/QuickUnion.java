@@ -42,13 +42,19 @@ public class QuickUnion {
      * @return
      */
 
-//    public int find(int p) {
-//        int node = p;
-//        while (id[node]!=node) node = id[node];
-//        return node;
-//        }
-
     public int find(int p) {
+        int node = p;
+        while (id[node]!=node) node = id[node];
+        return node;
+        }
+
+
+    /**
+     * Find-Methode, welche die Pfadkompression umsetzt.
+     * @param p
+     * @return
+     */
+    public int findCompressed(int p) {
 
         int root = p;           // Annhame Wurzel = Knoten;
         if(p!=id[p]){           // knoten ist nicht seine Eigene Wurzel
@@ -59,11 +65,6 @@ public class QuickUnion {
 
     }
 
-//    public void compress() {
-//        for (int i = 0; i < id.length; i++) {
-//            find(i);
-//        }
-//    }
 
 
     /**
@@ -83,15 +84,20 @@ public class QuickUnion {
     }
 
 
-//    public void unionCompressed(int p, int q) {
-//        int pRoot = find(p);
-//        int qRoot = find(q);
-//        if (pRoot != qRoot) {
-////            id[pRoot] = q;
-//
-//            count--;
-//        }
-//    }
+    /**
+     * Union Methode welche die kompremierende Find Methode benutzt.
+     * Erzeugt kompremierte Bäume.
+     * @param p
+     * @param q
+     */
+    public void unionCompressed(int p, int q) {
+        int pRoot = findCompressed(p);
+        int qRoot = findCompressed(q);
+        if (pRoot != qRoot) {
+            id[pRoot] = q;
+            count--;
+        }
+    }
 
     @Override
     public String toString() {
