@@ -1,15 +1,15 @@
-package ad_2;
+package Praktikum3.ad_2;
 
-import ad_2_1.Insertion;
-import ad_2_1.Selection;
-import ad_2_1.Shell;
-import ad_2_2.Merge;
-import ad_2_2.MergeBottomUp;
-import ad_2_3.Quick;
-import ad_2_3.Quick3Way;
-import ad_2_3.Quick3WayPlusInsertion;
-import ad_2_3.QuickPlusInsertion;
-import ad_2_4.HeapSort;
+import Praktikum3.ad_2_1.Insertion;
+import Praktikum3.ad_2_1.Selection;
+import Praktikum3.ad_2_1.Shell;
+import Praktikum3.ad_2_2.Merge;
+import Praktikum3.ad_2_2.MergeBottomUp;
+import Praktikum3.ad_2_3.Quick;
+import Praktikum3.ad_2_3.Quick3Way;
+import Praktikum3.ad_2_3.Quick3WayPlusInsertion;
+import Praktikum3.ad_2_3.QuickPlusInsertion;
+import Praktikum3.ad_2_4.HeapSort;
 
 public enum Sorter {
     SELECTION {

@@ -1,8 +1,8 @@
-package ad_2_1;
+package Praktikum3.ad_2_1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-import static ad_2.SortClassCommons.*;
+import static Praktikum3.ad_2.SortClassCommons.*;
 
 public class ShellWithOutput {
 

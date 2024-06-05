@@ -1,9 +1,9 @@
-package ad_2_3;
+package Praktikum3.ad_2_3;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdRandom;
 
-import static ad_2.SortClassCommons.*;
+import static Praktikum3.ad_2.SortClassCommons.*;
 
 public class Quick3WayPlusInsertion   {
 

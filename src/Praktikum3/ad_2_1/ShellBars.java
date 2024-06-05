@@ -1,4 +1,4 @@
-package ad_2_1;
+package Praktikum3.ad_2_1;
 
 /******************************************************************************
  *  Compilation:  javac ShellBars.java

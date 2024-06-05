@@ -1,12 +1,12 @@
-package ad_2_3;
+package Praktikum3.ad_2_3;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Insertion;
 import edu.princeton.cs.algs4.StdRandom;
 
-import static ad_2.SortClassCommons.isSorted;
-import static ad_2.SortClassCommons.show;
-import static ad_2_3.Quick.partition;
+import static Praktikum3.ad_2.SortClassCommons.isSorted;
+import static Praktikum3.ad_2.SortClassCommons.show;
+import static Praktikum3.ad_2_3.Quick.partition;
 
 
 public class QuickPlusInsertion  {

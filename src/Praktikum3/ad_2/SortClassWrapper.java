@@ -1,4 +1,4 @@
-package ad_2;
+package Praktikum3.ad_2;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

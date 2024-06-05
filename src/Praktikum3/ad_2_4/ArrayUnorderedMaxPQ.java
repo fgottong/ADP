@@ -1,4 +1,4 @@
-package ad_2_4;
+package Praktikum3.ad_2_4;
 
 public class ArrayUnorderedMaxPQ<K extends Comparable<? super K>> extends ArrayBaseMaxPQ<K> {
 

@@ -1,9 +1,9 @@
-package ad_2;
+package Praktikum3.ad_2;
 
 import edu.princeton.cs.algs4.In;
 
-import static ad_2.SortClassCommons.isSorted;
-import static ad_2.SortClassCommons.show;
+import static Praktikum3.ad_2.SortClassCommons.isSorted;
+import static Praktikum3.ad_2.SortClassCommons.show;
 
 public class SortClient {
 

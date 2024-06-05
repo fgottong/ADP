@@ -1,8 +1,8 @@
-package ad_2_4;
+package Praktikum3.ad_2_4;
 
 import edu.princeton.cs.algs4.In;
 
-import static ad_2.SortClassCommons.*;
+import static Praktikum3.ad_2.SortClassCommons.*;
 
 public class HeapSort {
 

@@ -1,8 +1,8 @@
-package ad_2_2;
+package Praktikum3.ad_2_2;
 
 import java.util.Arrays;
 
-import static ad_2.SortClassCommons.*;
+import static Praktikum3.ad_2.SortClassCommons.*;
 
 public class MergeBottomUp {
 

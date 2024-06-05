@@ -1,6 +1,6 @@
-package ad_2_1;
+package Praktikum3.ad_2_1;
 
-import ad_2.SortClassCommons;
+import Praktikum3.ad_2.SortClassCommons;
 import edu.princeton.cs.algs4.StdOut;
 
 public class InsertionWithOutput extends SortClassCommons {

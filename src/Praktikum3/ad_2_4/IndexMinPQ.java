@@ -1,4 +1,4 @@
-package ad_2_4;
+package Praktikum3.ad_2_4;
 
 import edu.princeton.cs.algs4.StdOut;
 

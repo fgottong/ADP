@@ -1,4 +1,4 @@
-package ad_2;
+package Praktikum3.ad_2;
 
 public class ReflectionException extends Exception {
 

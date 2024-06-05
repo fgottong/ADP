@@ -1,4 +1,4 @@
-package ad_2_3;
+package Praktikum3.ad_2_3;
 
 /******************************************************************************
  *  Compilation:  javac Quick3wayBars.java

@@ -1,4 +1,4 @@
-package ad_2_4;
+package Praktikum3.ad_2_4;
 
 public interface MinPQI <K extends Comparable<? super K>> {
 

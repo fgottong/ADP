@@ -1,6 +1,6 @@
-package ad_2;
+package Praktikum3.ad_2;
 
-public class SimpleAccumulator implements Accumulator{
+public class SimpleAccumulator implements Praktikum3.ad_2.Accumulator {
     protected int N=0;
     protected double total=0.0;
 
