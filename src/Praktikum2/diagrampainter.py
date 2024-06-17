@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import seaborn as sns
 
-df = pd.read_csv('../../results.csv',sep=',', lineterminator='\n',index_col='Trial')
+df = pd.read_csv('results_DoublyLinkedList.csv',sep=',', lineterminator='\n',index_col='Trial')
 print(df.head(11))
 
 # Diagram vorbereiten 
@@ -21,7 +21,7 @@ ax=plt.gca()
 plt.title("gemessene Laufzeiten im Vergleich")
 plt.gca().legend(title='Laufzeiten', loc="upper center")
 plt.gca().set_xlabel("Anzahl der Elemente / Listengröße")
-plt.gca().set_ylabel("Laufzeit in ms")
+plt.gca().set_ylabel("Laufzeit in ns")
 plt.gca().ticklabel_format(useMathText=True)
 
 

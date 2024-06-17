@@ -34,12 +34,17 @@ public class DoublyLinkedListDoublingRatio {
             index++;
         }
 
-        Stopwatch timer = new Stopwatch();
+        //Stopwatch timer = new Stopwatch();
+
+        long startTime = System.nanoTime();
 
         for (int i : testList) {
         }
+        long endTime = System.nanoTime();
 
-        times[t] = timer.elapsedTime();
+        times[t]= endTime - startTime;
+
+        //times[t] = timer.elapsedTime();
 
     }
 
