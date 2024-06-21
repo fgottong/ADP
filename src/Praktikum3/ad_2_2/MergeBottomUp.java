@@ -20,7 +20,8 @@ public class MergeBottomUp {
 //                // die Grenze N-1 nicht überschritten wird
 //            }
 //        }
-//    }
+//   }
+
 
     public static <T extends Comparable<? super T>> void sortFG(T[] a) {
         T[] aux = a.clone();
@@ -47,25 +48,44 @@ public class MergeBottomUp {
         // sortieren
         // sortiertes array in array von arrays
 
-        T[] temp = (T[]) new Comparable[3];
 
-
+        T[] temp = null ; //(T[]) new Comparable[3];
         T[][] temps =(T[][]) new Comparable[a.length / 3 + a.length % 3][3];
 
         int counter = 0;
 
         for (int i = 0; i < a.length; i += 3) {
+            temp = (T[]) new Comparable[3];
             for (int j = 0; j < 3 && j+i<a.length; j++) {
                 temp[j] = a[i + j];
             }
-            temp = fillOneSortedArray(temp);
-            temps[counter] = temp;
+
+            //temp = fillOneSortedArray(temp);
+            //temps[counter] = temp;
+
+            for (int j = 0; j < temp.length; j++) {
+                if (temp[j] == null) {
+                    temp = Arrays.copyOfRange(temp,0,j-1);
+                }
+            }
+
+            temps[counter] = fillOneSortedArray(temp); // Problem Flacher Kopien Gelöst.
+
             counter++;
         }
+
         a = sort(temps)[0];
 
     }
 
+    /**
+     * Recusive Methode
+     * Takes an array of arrays. The Larger/outer array as Length 3
+     * The inner array may have different length.
+     * @param temps
+     * @return
+     * @param <T>
+     */
     public static <T extends Comparable<? super T>> T[][] sort(T[][] temps) {
         // Abbruchbedingung
         if (temps.length == 1) {
@@ -73,6 +93,7 @@ public class MergeBottomUp {
         }
 
         // Arbeit in der Methode
+        // Length = number of all T-elements in the large array
         int length = 0;
         for (T[] t : temps) {
             for (T tchen : t) {
@@ -93,12 +114,102 @@ public class MergeBottomUp {
     }
 
     public static <T extends Comparable<? super T>> T[] fillOneSortedArray(T[] apart) {
-        Arrays.sort(apart);
-        return apart;
+//        Arrays.sort(apart);
+
+        if (apart.length == 1 || apart.length == 0) {
+            return apart;
+        }
+        else {
+            T[] temp = (T[]) new Comparable[apart.length];
+
+            if (apart[0].compareTo(apart[1]) < 0) {
+                temp[0] = apart[0];
+                temp[1] = apart[1];
+            } else {
+                temp[0] = apart[1];
+                temp[1] = apart[0];
+            }
+
+            //gehe über apart
+            for (int i = 1; i < apart.length; i++) {
+                // Ist apart[i] kleiner als temp[i-1] ?
+                if (apart[i].compareTo(temp[i - 1]) < 0) {
+                    // ja: Gehe über temp solang apart[i] größer ist.
+                    // Dann verschiebe temp elemenete um 1 und für apart i ein.
+                    for (int j = 0; j < temp.length; j++) {
+                        if (apart[i].compareTo(temp[j]) < 0) {
+                            System.arraycopy(temp, j, temp, j + 1, (temp.length - j + 1) - (apart.length - i + 1));
+                        }
+                        temp[j] = apart[i];
+                        //Verlasse die Schleife
+                        break;
+                    }
+                } else {
+                    // temp[i] ist gleich oder größer als apart[i]
+                    temp[i] = apart[i];
+                }
+            }
+            return temp;
+        }
+        // negative Zahl = erstes Element ist kleiner
+        // positive Zahl = Zweites element ist Größer
+
     }
 
-
+    /**
+     * Merge and Sort together 3 Arrays of different length.
+     * @param a1
+     * @param a2
+     * @param a3
+     * @return
+     * @param <T>
+     */
     public static <T extends Comparable<? super T>> T[] uniteAndSortArrays(T[] a1, T[] a2, T[]a3){
+        // Quelle: https://www.geeksforgeeks.org/java-program-for-merge-3-sorted-arrays/?ref=ml_lbp
+        T[] a12 = (T[]) new Comparable[a1.length+ a2.length];
+
+        int i,j;
+        i=0;
+        j=0;
+
+        while(i<a1.length && j<a2.length){
+            if(a1[i].compareTo(a2[j])<0){
+                a12[j+i] = a1[i++];
+            }else{
+                a12[j+i] = a2[j++];
+            }
+
+        }
+        // a2 has exhausted
+        while (i <a1.length)
+            a12[j+i] = a1[i++];
+
+        // a1 has exhausted
+        while (j < a2.length)
+            a12[j+i] = a2[j++];
+
+
+        i=j=0;
+        T[] a123 = (T[]) new Comparable[a12.length + a3.length];
+        while(i<a12.length && j<a3.length){
+            if(a12[i].compareTo(a3[j])<0){
+                a123[j+i] = a12[i++];
+            }else{
+                a123[j+i] = a3[j++];
+            }
+        }
+        // a3 has exhausted
+        while (i <a12.length)
+            a123[j+i] = a12[i++];
+
+        // a12 has exhausted
+        while (j < a3.length)
+            a123[j+i] = a3[j++];
+
+        return a123;
+    }
+
+    public static <T extends Comparable<? super T>> T[] uniteAndSortArraysOLD(T[] a1, T[] a2, T[]a3){
         T[] unitedAry = (T[]) new Comparable[a1.length+a2.length+a3.length];
 
         int l1 = a1.length;
@@ -116,14 +227,14 @@ public class MergeBottomUp {
         a3Cursor=0;
 
         for(int i = 0; i<unitedAry.length; i++){
-            if (a1Cursor<=3&&a2Cursor<=3&&a3Cursor<=3){ //ACHTUNG: Cursor müssen einzeln abgeprüft werden!!!!
+            if (a1Cursor<3&&a2Cursor<3&&a3Cursor<3){ //ACHTUNG: Cursor müssen einzeln abgeprüft werden!!!!
                 if(less(a1[a1Cursor], a2[a2Cursor]) && less(a1[a1Cursor],a3[a3Cursor])){
                     // a1 hat das Kleinste Element
                     unitedAry[i] = a1[a1Cursor];
                     a1Cursor++;
                 }
                 else if(less(a2[a2Cursor], a1[a1Cursor]) && less(a2[a2Cursor],a3[a3Cursor])){
-                    //a2 hat das kleinste Element
+                    // a2 hat das kleinste Element
                     unitedAry[i] = a2[a2Cursor];
                     a2Cursor++;
                 }
