@@ -149,6 +149,7 @@ public class MaxPQHeap<Key extends Comparable<? super Key>> {
         insertDraw(maxPQ,"L",10);
         insertDraw(maxPQ,"E",11);
         delMaxDraw(maxPQ,12);
+
     }
     private static void delMaxDraw(MaxPQHeap maxPQ, int step) {
         maxPQ.delMax();
