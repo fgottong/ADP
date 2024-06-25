@@ -32,6 +32,13 @@ public class SortCompare {
         int N = Integer.parseInt(args[2]);
         int repeat = Integer.parseInt(args[3]);
         compare(alg1, alg2, N, repeat);
+
+        // SortCompare alg1 alg2 AnzEle AnzWdh
+        // SortCompare QUICK QUICKMEDIAN3 100 5
+        // SortCompare QUICK QUICKMEDIAN3 200 5
+        // SortCompare QUICK QUICKMEDIAN3 400 5
+        // SortCompare QUICK QUICKMEDIAN3 800 5
+        // SortCompare QUICK QUICKMEDIAN3 800000 5
     }
 
     private static void compare(Sorter alg1, Sorter alg2, int length, int repeat) throws ReflectionException {

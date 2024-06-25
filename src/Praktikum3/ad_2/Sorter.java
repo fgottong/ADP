@@ -5,10 +5,7 @@ import Praktikum3.ad_2_1.Selection;
 import Praktikum3.ad_2_1.Shell;
 import Praktikum3.ad_2_2.Merge;
 import Praktikum3.ad_2_2.MergeBottomUp;
-import Praktikum3.ad_2_3.Quick;
-import Praktikum3.ad_2_3.Quick3Way;
-import Praktikum3.ad_2_3.Quick3WayPlusInsertion;
-import Praktikum3.ad_2_3.QuickPlusInsertion;
+import Praktikum3.ad_2_3.*;
 import Praktikum3.ad_2_4.HeapSort;
 
 public enum Sorter {
@@ -57,7 +54,14 @@ public enum Sorter {
         public Class<?> getSorterClass() {
             return HeapSort.class;
         }
-    };
+    },
+    QUICKMEDIAN3{
+      public Class<?> getSorterClass(){return QuickMedian3.class;}
+    },QUICKMEDIAN7{
+        public Class<?> getSorterClass(){return QuickMedian7.class;}
+    }
+
+    ;
 
     public abstract Class<?> getSorterClass();
 }
