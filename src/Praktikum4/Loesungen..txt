@@ -1,0 +1,55 @@
+4) B 1.
+
+1.
+lgR() liefert die Anzahl der Bits um ein Zeichen zu repräsentieren.
+
+2.
+Schlüsselindiziertes Zählen ist für kleine Integer-Schlüssel günstig
+
+3.
+MSD (Most Significant Digit) sortiert Strings ungleicher Länge nach der Abfolge der Zeichen von links nach rechts nach dem Wert des jeweiligen Zeichens.
+-> Sortiert das linke Zeichen
+--> Ergibt Teilarrays
+-> Teilarrays warden nach Wert des 2. Zeichens sortiert
+--> ... repeat
+
+4. 
+Zeichenkettenenden warden durch Zeichenwert 0 gekennzeichnet
+
+5.
+Große Alphabete
+Lange Zeichenketten v.a. mit langen, gleichen Präfixen
+
+6.
+Alle Zeichenketten sind gleich
+Lange Zeichenreihen aus großem Alphabet -> Lange Berechnungszeiten und großer Speicherbedarf
+==> count[]-Array: Nur bei bekanntem Wertebereich sparsam einschränkbar
+
+7.
+Idealfall: Zufällige Eingaben mit wenigen, doppelten Schlüsseln
+Kleines, bekanntes Alphabet
+Wenig Überdeckung bei Präfixen
+
+8.
+3-Wege-Quick-Sort
+Zeichenketten warden in 3 Teilarrays aufgebrochen und rekursiv sortiert
+Benötigt keinen zusätzlichen Speicher da in-place getauscht wird
+
+Im Vergleich zu standart Quick-Sort:
+MSD: zwischen 2N, NlogR(N) und 2NW Vergleiche (W= max Länge, R = Zeichen im Alphanbet)
+~1.39 N log2(N) Vergleiche --> ca log2(N) Vergleiche weniger
+
+
+4) C 3.
+RST - Jeder Knoten verwaltet potentiell Referenzen auf alle R Symbole im Alphabet
+Alphabetabhängig
++verkettete Struktur unabhängig von Schlüsselreihenfolge
+ --> schnelles finden von Schlüsseln
+-Großer Speicherbedarf bei hohen Rs
+-Nicht geeignet für Daten mit vielen langen schlüsseln (gleicher Grund) 
+
+TST - Jeder Knoten entscheidet über Kleiner/größer
+Alphabet-Unabhängig
++Geringerer Speicherbedarf, da weniger Referenzen pro Knoten verwaltet werden
+-Längere Suchzeiten falls Schlüssel weit hinten in Kette
+
