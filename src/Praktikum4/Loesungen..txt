@@ -46,10 +46,13 @@ Alphabetabhängig
 +verkettete Struktur unabhängig von Schlüsselreihenfolge
  --> schnelles finden von Schlüsseln
 -Großer Speicherbedarf bei hohen Rs
--Nicht geeignet für Daten mit vielen langen schlüsseln (gleicher Grund) 
+-Nicht geeignet für Daten mit vielen langen schlüsseln (gleicher Grund)
+=> geeignet für kleine alphabete, binär, DNA/
 
 TST - Jeder Knoten entscheidet über Kleiner/größer
 Alphabet-Unabhängig
 +Geringerer Speicherbedarf, da weniger Referenzen pro Knoten verwaltet werden
 -Längere Suchzeiten falls Schlüssel weit hinten in Kette
+
+=>Ganz Schlecht: Eingabe abhängig ; jede zeichenkette beginnt mit einem anderen zeichen und die eingabe ist bereits sortiert:
 
